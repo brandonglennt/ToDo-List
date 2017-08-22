@@ -26,6 +26,8 @@ export default class Home extends React.PureComponent {
     })
   };
 
+
+
   storeItem = () => {
     var listItems = this.state.listItems;
     var inputItem = this.state.inputItem;
@@ -40,6 +42,11 @@ export default class Home extends React.PureComponent {
     }
   };
 
+  strikeThrough = (event) => {
+    let item = event.target;
+    item.style.textDecoration = 'line-through';
+  }
+
   render() {
     return (
       <div className="container">
@@ -51,7 +58,7 @@ export default class Home extends React.PureComponent {
         </div>
         <div className="todoList">
           {this.state.listItems.map((item, index) => (
-            <div className="listItem" key={index}>
+            <div className="listItem" key={index} onClick={this.strikeThrough}>
               {item}
             </div>
           ))}
